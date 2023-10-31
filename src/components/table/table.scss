@@ -1,0 +1,10 @@
+.table {
+  background-color: rgb(224, 147, 255);
+  margin: 0 auto;
+  border-radius: 20px;
+  padding: 20px;
+
+  &__cell {
+    padding: 5px;
+  }
+}

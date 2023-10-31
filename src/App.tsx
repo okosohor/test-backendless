@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
+import {Routes, Route, Navigate} from 'react-router-dom';
 import './App.css';
+import { Header } from './components/header';
+import { Table } from './components/table';
+import tabs from './data';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Navigate to={`/tabs/${tabs.sort((tab1, tab2) => tab1.order - tab2.order)[0].id}`} />}>
+
+      </Route>
+      <Route path="/tabs" element={<Header />}>
+          <Route path=":id" element={<Table />} />
+        </Route>
+    </Routes>
   );
-}
+};
 
 export default App;
