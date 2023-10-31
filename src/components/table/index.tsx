@@ -4,7 +4,7 @@ import './table.scss';
 
 
 
-export const Table: React.FC = () => {
+const Table: React.FC = () => {
   const { id } = useParams();
   
     const title = tabs.find(tab => tab.id === id)?.title || 'No results';
@@ -19,3 +19,5 @@ export const Table: React.FC = () => {
     </table>
   );
 };
+
+export default Table;
